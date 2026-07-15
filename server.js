@@ -4,7 +4,15 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 
 const app = express();
-app.use(cors({ origin: 'https://d3-d-drops-client.vercel.app' }));
+app.use(
+  cors({
+    origin: [
+      "https://slugshop.online",
+      // "http://localhost:5173"
+    ],
+    credentials: true, // optional (if using cookies/auth)
+  })
+);
 app.use(express.json());
 app.use('/api/products', require('./routes/products'));
 
